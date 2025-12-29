@@ -19,16 +19,57 @@
 // ]
 // And [2, 1] for the coordinates of the dive location, return "Recovered" because the dive found the last unfound part of the treasure.
 
+// function dive(map, coordinates) {
+//    console.log(map, coordinates)
+// find the character in matrix
+// loop over map
+//    for (row = 0; row <= map.length; row++) {
+//      for (col = 0; col <= map[i].length; col++) {
+//        if (map[row] === coordinates[0] && map[row][col] === coordinates[1]) {
+//          console.log("Hello")
+//        }
+//      }
+//    }
+//   return map;
+//}
+
 function dive(map, coordinates) {
-  console.log(map, coordinates);
-  // find the character in matrix
-  // loop over map
-  for (row = 0; row <= map.length; row++) {
-    for (col = 0; col <= map[i].length; col++) {
-      if (map[row] === coordinates[0] && map[row][col] === coordinates[1]) {
-        console.log('Hello');
-      }
-    }
+  // we have the coordinates of the map to check
+  const [row, col] = coordinates;
+  // get the value
+  const spot = map[row][col];
+  console.log(spot);
+
+  let counter = 0;
+  // if not O
+  if (spot !== 'O') {
+    return 'Empty';
   }
-  return map;
+
+  // if (spot === "X") {
+  //   return "Found"
+  // }
+
+  // flatten matrix
+  const flat = map.flat();
+  console.log(flat);
+
+  // check how many Os
+  const oCount = flat.filter((cell) => cell === 'O').length;
+  console.log(oCount);
+
+  if (oCount === 1) {
+    return 'Recovered';
+  } else {
+    return 'Found';
+  }
 }
+
+dive(
+  [
+    ['-', '-', '-'],
+    ['X', 'O', 'X'],
+    ['-', '-', '-'],
+  ],
+  [1, 2]
+);
