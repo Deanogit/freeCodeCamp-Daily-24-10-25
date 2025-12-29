@@ -18,3 +18,17 @@
 //   [ "-", "O"]
 // ]
 // And [2, 1] for the coordinates of the dive location, return "Recovered" because the dive found the last unfound part of the treasure.
+
+function dive(map, coordinates) {
+  console.log(map, coordinates);
+  // find the character in matrix
+  // loop over map
+  for (row = 0; row <= map.length; row++) {
+    for (col = 0; col <= map[i].length; col++) {
+      if (map[row] === coordinates[0] && map[row][col] === coordinates[1]) {
+        console.log('Hello');
+      }
+    }
+  }
+  return map;
+}
