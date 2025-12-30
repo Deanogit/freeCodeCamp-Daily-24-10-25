@@ -61,6 +61,20 @@
 //   return map;
 //}
 
+// function dive(map, coordinates) {
+//    console.log(map, coordinates)
+// find the character in matrix
+// loop over map
+//    for (row = 0; row <= map.length; row++) {
+//      for (col = 0; col <= map[i].length; col++) {
+//        if (map[row] === coordinates[0] && map[row][col] === coordinates[1]) {
+//          console.log("Hello")
+//        }
+//      }
+//    }
+//   return map;
+//}
+
 function dive(map, coordinates) {
   // we have the coordinates of the map to check
   const [row, col] = coordinates;
@@ -95,7 +109,7 @@ function dive(map, coordinates) {
 
   if (spot === 'O' && oCount === 1) {
     return 'Recovered';
-  } else {
+  } else if ((spot === 'O' && oCount > 1) || spot === 'X') {
     return 'Found';
   }
 }
