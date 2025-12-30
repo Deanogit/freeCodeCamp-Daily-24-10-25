@@ -47,6 +47,20 @@
 //   return map;
 //}
 
+// function dive(map, coordinates) {
+//    console.log(map, coordinates)
+// find the character in matrix
+// loop over map
+//    for (row = 0; row <= map.length; row++) {
+//      for (col = 0; col <= map[i].length; col++) {
+//        if (map[row] === coordinates[0] && map[row][col] === coordinates[1]) {
+//          console.log("Hello")
+//        }
+//      }
+//    }
+//   return map;
+//}
+
 function dive(map, coordinates) {
   // we have the coordinates of the map to check
   const [row, col] = coordinates;
@@ -59,9 +73,9 @@ function dive(map, coordinates) {
 
   // if the location has no treasure, return "Empty"
   // this is returning if the target is empty, not the location...
-  // if (spot !== "O") {
-  //   return "Empty"
-  // }
+  if (spot === '-') {
+    return 'Empty';
+  }
 
   // if (spot === "X") {
   //   return "Found"
@@ -71,7 +85,7 @@ function dive(map, coordinates) {
   const flat = map.flat();
   console.log(flat);
 
-  if (!flat.includes('O')) return 'Empty';
+  // if (!flat.includes("O")) return "Empty"
 
   // check how many Os
   const oCount = flat.filter((cell) => cell === 'O').length;
@@ -79,13 +93,14 @@ function dive(map, coordinates) {
 
   // if the dive location finds treasure, but at least one other part of the treasure remains unfound, return "Found"
 
-  if (oCount === 1) {
+  if (spot === 'O' && oCount === 1) {
     return 'Recovered';
   } else {
     return 'Found';
   }
 }
 
+// dive([[ "-", "-", "-"], [ "X", "O", "X"], [ "-", "-", "-"]], [1, 2])
 dive(
   [
     ['-', '-', '-'],
